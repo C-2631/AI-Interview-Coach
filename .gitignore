@@ -1,0 +1,33 @@
+# Node / Vite
+node_modules/
+dist/
+dist-ssr/
+*.local
+.env
+.env.production
+.env.development
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+.env
+
+# Database
+*.db
+*.sqlite3
+
+# Editors / OS
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+Thumbs.db

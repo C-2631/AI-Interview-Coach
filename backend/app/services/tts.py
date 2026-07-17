@@ -34,7 +34,7 @@ async def synthesize_speech(text: str, voice_id: str = None) -> bytes | None:
         logger.warning("ElevenLabs API key not configured. Skipping TTS.")
         return None
 
-    voice = voice_id or DEFAULT_VOICE_ID
+    voice = voice_id or settings.ELEVENLABS_VOICE_ID or DEFAULT_VOICE_ID
     url = f"{ELEVENLABS_API_URL}/text-to-speech/{voice}"
     
     headers = {

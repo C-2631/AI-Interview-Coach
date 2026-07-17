@@ -815,8 +815,12 @@ function App() {
       showToast("Welcome to your interview practice! Try the time-pressure timer.", "success");
     } catch (e) {
       timers.forEach(t => clearTimeout(t));
-      console.error(e);
-      showToast(`Initialization Failed: ${e.message}`, "error");
+      console.error("Initialization error against URL:", `${API_BASE_URL}/api/sessions`, e);
+      if (e.message && e.message.includes("Failed to fetch")) {
+        showToast(`Connection Failed: Cannot reach backend at "${API_BASE_URL}". If on Vercel, check that VITE_API_URL is set and redeploy.`, "error");
+      } else {
+        showToast(`Initialization Failed: ${e.message}`, "error");
+      }
       setActiveView('setup');
     }
   };
